@@ -10,18 +10,30 @@ import { ListStudentComponent } from './components/student/list-student/list-stu
 import { HttpClientModule } from '@angular/common/http';
 import { StudentService } from './services/student.service';
 
+import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './components/home/home.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { LoginComponent } from './components/auth/login.component';
+import { RegisterComponent } from './components/auth/register.component';
+import { interceptorProvider } from './interceptors/student.interceptor';
+
 //External
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { DetailStudentComponent } from './components/student/detail-student/detail-student.component';
 
-import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddStudentComponent,
     EditStudentComponent,
-    ListStudentComponent
+    ListStudentComponent,
+    HomeComponent,
+    MenuComponent,
+    LoginComponent,
+    RegisterComponent,
+    DetailStudentComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +43,7 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
   ],
-  providers: [StudentService],
+  providers: [StudentService, interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

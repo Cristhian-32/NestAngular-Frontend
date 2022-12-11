@@ -8,13 +8,13 @@ import { Student } from '../models/student';
 })
 export class StudentService {
 
-  selectStudent: Student= new Student();
+  selectStudent: Student = new Student();
   reqHeader = new HttpHeaders({
     'Content-Type': 'application/json',
   })
 
   constructor(private httpClient:HttpClient) { }
-  studentURL = 'http://localhost:8080/api';
+  studentURL = 'http://localhost:6060/api';
 
 
   //GET
@@ -37,5 +37,9 @@ export class StudentService {
   //DELETE
   DeleteStudent(id: number) {
     return this.httpClient.delete(this.studentURL+'/student/'+id+'/');
+  }
+
+  detail(id:number): Observable<Student> {
+    return this.httpClient.get<Student>(this.studentURL+'/student/'+id+'/')
   }
 }
