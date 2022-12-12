@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { LoginUserDto } from 'src/app/models/login-user.dto';
 import { AuthService } from 'src/app/services/auth.service';
-import { TokenService } from 'src/app/services/token.service';
+import { LoginUserDto } from '../models/login-user.dto';
+import { TokenService } from '../services/token.service';
 
 @Component({
   selector: 'app-login',
@@ -21,16 +21,18 @@ export class LoginComponent implements OnInit {
 
   user: LoginUserDto = null!;
 
-  username!: string;
-  password!: string;
-
+  public username: string = "";
+  public password: string = "";
 
   ngOnInit(): void {
   }
 
-  onLogin(): void {
+  onSubmitLogin(): void {
     this.user = new LoginUserDto(this.username, this.password);
     this.authService.login(this.user).subscribe(data => {
+      this.toastrService.success('Autentificación exitosa', 'OK', {
+        timeOut: 3000, positionClass: 'toast-top-right'
+      });
       //console.log(data);
       if (!data.token) {
         this.toastrService.error(data.response.message, 'Fail', {
@@ -38,9 +40,6 @@ export class LoginComponent implements OnInit {
         });
       } else {
         this.tokenService.setToken(data.token);
-        this.toastrService.success('Autentificación exitosaa', 'OK', {
-          timeOut: 3000, positionClass: 'toast-top-right'
-        });
         this.router.navigate(['/'])
       }
     },
@@ -51,4 +50,5 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+
 }
