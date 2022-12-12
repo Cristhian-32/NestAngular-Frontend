@@ -16,6 +16,15 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  onGoogleLogin(){
+    //to services
+    try{this.authService.loginGoogle();
+
+    } catch(error){
+      console.log(error);
+    }
+
+    }
 
   onSubmitLogin(){
   	this.authService.loginEmail(this.email,this.password).subscribe((token:any)=>{
