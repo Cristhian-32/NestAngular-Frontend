@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { LoginUserDto } from 'src/app/models/login-user.dto';
 import { AuthService } from 'src/app/services/auth.service';
-import { LoginUserDto } from '../models/login-user.dto';
-import { TokenService } from '../services/token.service';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-login',
@@ -21,27 +21,16 @@ export class LoginComponent implements OnInit {
 
   user: LoginUserDto = null!;
 
-  public username: string = "";
-  public password: string = "";
+  username!: string;
+  password!: string;
+
 
   ngOnInit(): void {
   }
-  onGoogleLogin(){
-    //to services
-    try{this.authService.loginGoogle();
 
-    } catch(error){
-      console.log(error);
-    }
-
-    }
-
-  onSubmitLogin(): void {
+  onLogin(): void {
     this.user = new LoginUserDto(this.username, this.password);
     this.authService.login(this.user).subscribe(data => {
-      this.toastrService.success('Autentificación exitosa', 'OK', {
-        timeOut: 3000, positionClass: 'toast-top-right'
-      });
       //console.log(data);
       if (!data.token) {
         this.toastrService.error(data.response.message, 'Fail', {
@@ -49,6 +38,9 @@ export class LoginComponent implements OnInit {
         });
       } else {
         this.tokenService.setToken(data.token);
+        this.toastrService.success('Autentificación exitosaa', 'OK', {
+          timeOut: 3000, positionClass: 'toast-top-right'
+        });
         this.router.navigate(['/'])
       }
     },
@@ -59,5 +51,4 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-
 }

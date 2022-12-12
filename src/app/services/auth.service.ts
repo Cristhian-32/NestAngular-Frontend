@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Auth, getAuth, GoogleAuthProvider} from 'firebase/auth';
 
@@ -8,13 +8,21 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 
 
+import { Observable } from 'rxjs';
+import { LoginUserDto } from '../models/login-user.dto';
+import { NewUserDto } from '../models/new-user.dto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private http:HttpClient,public afAuth:AngularFireAuth) { }
+  reqHeader = new HttpHeaders({
+    'Content-Type': 'application/json',
+  })
+
+  authURL = 'http://localhost:6060/api';
+  constructor(private httpClient: HttpClient,public afAuth:AngularFireAuth) { }
 
   async loginGoogle(){
     try{
@@ -24,15 +32,14 @@ export class AuthService {
     return false;
     }
 
-  API="http://127.0.0.1:8000/api/auth";
 
-  loginEmail(email:string, pass:string){
-    return this.http.post(this.API+"/login",{ email:email,password:pass });
+
+  login(dto: LoginUserDto): Observable<any> {
+    return this.httpClient.post(this.authURL+'/auth/login', dto);
   }
 
-  logout() :void {
-    localStorage.setItem('isLoggedIn','false');
-    localStorage.removeItem('token');
+  register(dto: NewUserDto): Observable<any> {
+    return this.httpClient.post(this.authURL+'/auth/nuevo', dto);
   }
 
 

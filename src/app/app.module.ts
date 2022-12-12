@@ -10,6 +10,13 @@ import { ListStudentComponent } from './components/student/list-student/list-stu
 import { HttpClientModule } from '@angular/common/http';
 import { StudentService } from './services/student.service';
 
+
+import { HomeComponent } from './components/home/home.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { LoginComponent } from './components/auth/login.component';
+import { RegisterComponent } from './components/auth/register.component';
+import { interceptorProvider } from './interceptors/student.interceptor';
+
 //External
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
@@ -19,7 +26,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from 'src/environments/environment';
-import { DdComponent } from './dashboard/dd/dd.component';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +34,10 @@ import { DdComponent } from './dashboard/dd/dd.component';
     AddStudentComponent,
     EditStudentComponent,
     ListStudentComponent,
-    DdComponent
+    HomeComponent,
+    MenuComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +51,7 @@ import { DdComponent } from './dashboard/dd/dd.component';
     AngularFireAnalyticsModule,
     AngularFirestoreModule
   ],
-  providers: [StudentService],
+  providers: [StudentService, interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

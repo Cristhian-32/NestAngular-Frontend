@@ -20,7 +20,7 @@ export class AddStudentComponent implements OnInit {
   submitForm(studentForm: NgForm) {
     if (studentForm.value.id == null) {
       this.studentService.CreateStudent(studentForm.value).subscribe((response) => {
-        this.toastr.success('Nuevo Estdudiante Agregado', 'OK', {
+        this.toastr.success('Nuevo Estudiante Agregado', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-right'
         });
         this.router.navigate(["/list-student"]);

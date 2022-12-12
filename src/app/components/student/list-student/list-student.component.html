@@ -1,3 +1,4 @@
+<app-menu></app-menu>
 <div class="container wrapper" *ngIf="!emptyList">
     <div class="row">
         <!-- table -->
@@ -15,7 +16,7 @@
                             <th scope="col">Apellido Paterno</th>
                             <th scope="col">Apellido Materno</th>
                             <th scope="col">Código</th>
-                            <th scope="col">Action</th>
+                            <th scope="col" *ngIf="isAdmin">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -25,9 +26,10 @@
                             <td>{{item.male_lastname}}</td>
                             <td>{{item.female_lastname}}</td>
                             <td>{{item.code}}</td>
-                            <td>
-                                <button type="button" class="btn btn-success btn-sm move-right" (click)="onEdit(item)">Edit</button>
+                            <td *ngIf="isAdmin">
+                                <button type="button" class="btn btn-success btn-sm move-right" (click)="onEdit(item)">Editar</button>
                                 <button type="button" class="btn btn-danger btn-sm" (click)="deleteStudent(item.id)">Remove</button>
+                                <!-- <button type="button" class="btn btn-success btn-sm move-right" routerLink="/detail-student/{{item.id}}">View</button> -->
                             </td>
                         </tr>
                     </tbody>

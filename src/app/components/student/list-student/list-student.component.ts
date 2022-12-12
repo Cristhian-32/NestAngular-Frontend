@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Student } from 'src/app/models/student';
 import { StudentService } from 'src/app/services/student.service';
+import { TokenService } from 'src/app/services/token.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -15,11 +16,18 @@ export class ListStudentComponent implements OnInit {
 
   emptyList = undefined;
 
-  constructor(public studentService: StudentService, private router:Router) { }
+  isAdmin!: boolean;
+
+  constructor(
+    public studentService: StudentService, 
+    private router:Router,
+    private tokenService: TokenService
+    ) { }
 
   ngOnInit(): void {
 
     this.loadStudents();
+    this.isAdmin = this.tokenService.isAdmin();
   }
 
   loadStudents() {
