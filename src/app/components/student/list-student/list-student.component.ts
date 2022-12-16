@@ -28,6 +28,7 @@ export class ListStudentComponent implements OnInit {
 
     this.loadStudents();
     this.isAdmin = this.tokenService.isAdmin();
+    //this.tokenService.getRoleByToken();
   }
 
   loadStudents() {

@@ -13,15 +13,19 @@ export class AuthService {
     'Content-Type': 'application/json',
   })
 
-  authURL = 'http://localhost:6060/api';
+  authURL = 'http://localhost:6060/api/auth';
 
   constructor(private httpClient: HttpClient) { }
 
   login(dto: LoginUserDto): Observable<any> {
-    return this.httpClient.post(this.authURL+'/auth/login', dto);
+    return this.httpClient.post(this.authURL+'/login', dto);
   }
 
   register(dto: NewUserDto): Observable<any> {
-    return this.httpClient.post(this.authURL+'/auth/nuevo', dto);
+    return this.httpClient.post(this.authURL+'/nuevo', dto);
+  }
+
+  registerAdviser(dto: NewUserDto): Observable<any> {
+    return this.httpClient.post(this.authURL+'/adviser/nuevo', dto);
   }
 }

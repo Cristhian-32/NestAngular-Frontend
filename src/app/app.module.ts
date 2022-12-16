@@ -20,6 +20,7 @@ import { interceptorProvider } from './interceptors/student.interceptor';
 //External
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { RegisterAdviserComponent } from './components/auth/register-adviser.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ToastrModule } from 'ngx-toastr';
     HomeComponent,
     MenuComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    RegisterAdviserComponent
   ],
   imports: [
     BrowserModule,

@@ -8,11 +8,20 @@
   <div class=" navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mr-auto">
 
+      <li class="nav-item" *ngIf="isAdmin">
+        <a class="nav-link" routerLink="/register-adviser"><i class="fa-solid fa-user-tie"></i> Registrar Nuevo Asesor</a>
+      </li>
+
       <li class="nav-item" *ngIf="isLogged">
         <a class="nav-link" routerLink="/list-student"><i class="far fa-list-alt"></i> Listas</a>
       </li>
-      <li class="nav-item" *ngIf="isAdmin">
-        <a class="nav-link" routerLink="/add-student"><i class="fas fa-plus-circle"></i> Nuevo Producto</a>
+
+      <li class="nav-item" *ngIf="isAdviser">
+        <a class="nav-link" routerLink="/add-student"><i class="fas fa-plus-circle"></i> Nuevo Estudiante</a>
+      </li>
+
+      <li class="nav-item" *ngIf="isAdviser">
+        <a class="nav-link" routerLink="/add-student"><i class="fas fa-plus-circle"></i> Prueba</a>
       </li>
 
     </ul>

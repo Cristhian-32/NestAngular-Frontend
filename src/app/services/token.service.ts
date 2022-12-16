@@ -8,7 +8,7 @@ export class TokenService {
   constructor() { }
 
   isLogged(): boolean {
-    if(this.getToken()) {
+    if (this.getToken()) {
       return true;
     }
     return false;
@@ -23,7 +23,7 @@ export class TokenService {
   }
 
   getNameUser(): string {
-    if(!this.isLogged()) {
+    if (!this.isLogged()) {
       return null!;
     }
     const token = this.getToken();
@@ -33,6 +33,19 @@ export class TokenService {
     const username = valuesJson.username;
     //console.log(nameUser);
     return username;
+  }
+
+  getRoleByToken(): string {
+    if (!this.isLogged()) {
+      return null!;
+    }
+    const token = this.getToken();
+    const payload = token.split('.')[1];
+    const values = atob(payload);
+    const valuesJson = JSON.parse(values);
+    const roles = valuesJson.roles;
+    console.log(roles);
+    return roles;
   }
 
   isAdmin(): boolean {
@@ -50,7 +63,26 @@ export class TokenService {
     return true;
   }
 
+  isAdviser(): boolean {
+    if (!this.isLogged()) {
+      return null!;
+    }
+    const token = this.getToken();
+    const payload = token.split('.')[1];
+    const values = atob(payload);
+    const valuesJson = JSON.parse(values);
+    const roles = valuesJson.roles;
+    if (roles.indexOf('adviser') < 0) {
+      return false;
+    }
+    return true;
+  }
+
   logOut(): void {
     localStorage.clear();
+  }
+
+  getRole(): any{
+    return localStorage.getItem('roles');
   }
 }

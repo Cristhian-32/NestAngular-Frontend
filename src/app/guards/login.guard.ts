@@ -12,8 +12,10 @@ export class LoginGuard implements CanActivate {
     private router: Router
     ) { }
 
+    realRole!: string;
+
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    if(this,this.tokenService.isLogged()) {
+    if(this.tokenService.isLogged()) {
       this.router.navigate(['/']);
       return false;
     }

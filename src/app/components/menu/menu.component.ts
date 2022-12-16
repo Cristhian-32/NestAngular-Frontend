@@ -11,6 +11,7 @@ export class MenuComponent implements OnInit {
 
   isLogged!: boolean;
   isAdmin!: boolean;
+  isAdviser!: boolean;
 
   constructor(
     private tokenService: TokenService,
@@ -20,6 +21,7 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
     this.isLogged = this.tokenService.isLogged();
     this.isAdmin = this.tokenService.isAdmin();
+    this.isAdviser = this.tokenService.isAdviser();
   }
 
   logOut(): void {
