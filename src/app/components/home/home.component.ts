@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TokenService } from 'src/app/services/token.service';
 
 @Component({
@@ -8,14 +9,18 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class HomeComponent implements OnInit {
 
-  public nameUser: string ="";
+  nameUser!: string;
+  isLogged!: boolean;
 
   constructor(
-    private tokenService : TokenService
+    private tokenService: TokenService,
+    private router: Router
   ) { }
+
 
   ngOnInit(): void {
     this.nameUser = this.tokenService.getNameUser();
+    this.isLogged = this.tokenService.isLogged();
   }
 
 }

@@ -12,6 +12,7 @@ export class MenuComponent implements OnInit {
   isLogged!: boolean;
   isAdmin!: boolean;
   isAdviser!: boolean;
+  
 
   constructor(
     private tokenService: TokenService,

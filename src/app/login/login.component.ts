@@ -26,6 +26,15 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  onGoogleLogin(){
+    //to services
+    try{this.authService.loginGoogle();
+
+    } catch(error){
+      console.log(error);
+    }
+
+    }
 
   onSubmitLogin(): void {
     this.user = new LoginUserDto(this.username, this.password);

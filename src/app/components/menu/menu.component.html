@@ -5,8 +5,8 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class=" navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav mr-auto">
+  <div class= "navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto ">
 
       <li class="nav-item" *ngIf="isAdmin">
         <a class="nav-link" routerLink="/register-adviser"><i class="fa-solid fa-user-tie"></i> Registrar Nuevo Asesor</a>
@@ -19,19 +19,26 @@
       <li class="nav-item" *ngIf="isAdviser">
         <a class="nav-link" routerLink="/add-student"><i class="fas fa-plus-circle"></i> Nuevo Estudiante</a>
       </li>
-
-      <li class="nav-item" *ngIf="isAdviser">
-        <a class="nav-link" routerLink="/add-student"><i class="fas fa-plus-circle"></i> Prueba</a>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/list-student"><i class="far fa-list-alt"></i> Plantillas</a>
       </li>
-
+      <li class="nav-item">
+        <a class="nav-link"  routerLink="/add-student"><i class="fas fa-plus-circle"></i> Convocatorias</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  routerLink="/add-student"><i class="fas fa-plus-circle"></i> mis proyectos</a>
+      </li>
     </ul>
-    <form class="d-flex" role="search">
-      <button class="btn btn-success" routerLink="/login" *ngIf="!isLogged"><i
+    <ul>
+      <form class="  d-flex " role="search">
+        <button class="btn btn-success" routerLink="/login" *ngIf="!isLogged"><i
           class="fa-solid fa-right-to-bracket"></i> Iniciar Sesión</button>
-      <button class="btn btn-light" routerLink="/register" *ngIf="!isLogged"><i
+        <button class="btn btn-light" routerLink="/register" *ngIf="!isLogged"><i
           class="fa-solid fa-right-to-bracket"></i> Registrarse</button>
-      <button class="btn btn-danger" *ngIf="isLogged" (click)="logOut()"><i
+        <button class="btn btn-danger" *ngIf="isLogged" (click)="logOut()"><i
           class="fa-solid fa-right-to-bracket"></i> Cerrar Sesión</button>
-    </form>
+      </form>
+    </ul>
   </div>
 </nav>
+

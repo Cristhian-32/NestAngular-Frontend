@@ -10,6 +10,8 @@ import { ListStudentComponent } from './components/student/list-student/list-stu
 import { LoginGuard } from './guards/login.guard';
 import { RolesGuard } from './guards/roles.guard';
 
+
+
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path:'list-student', component:ListStudentComponent, canActivate: [RolesGuard], data: {expectedRole: ['admin', 'adviser', 'user']}},
@@ -17,11 +19,13 @@ const routes: Routes = [
   {path:'detail-student', component:DetailStudentComponent},
   {path:'login', component: LoginComponent, canActivate: [LoginGuard]},
   {path:'register', component: RegisterComponent, canActivate: [LoginGuard]},
-  {path:'register-adviser', component: RegisterAdviserComponent, canActivate: [RolesGuard], data: {expectedRole: ['admin']}}
+  {path:'register-adviser', component: RegisterAdviserComponent, canActivate: [RolesGuard], data: {expectedRole: ['admin']}},
+  //{path:'',component:LoginComponent},
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
-}) 
+})
 export class AppRoutingModule { }

@@ -19,10 +19,10 @@ export class RolesGuard implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     //const expectedRole = route.data.expectedRole;
     const expectedRole = route.data?.["expectedRole"];
-    this.realRole = this.tokenService.isAdmin() ? 'admin' : 'adviser';
+    this.realRole = this.tokenService.isAdmin() ? 'admin' : 'user';
     this.realRole2 = this.tokenService.isAdviser() ? 'adviser' : 'user';
     if (!this.tokenService.isLogged() || expectedRole.indexOf(this.realRole ) < 0 && expectedRole.indexOf(this.realRole2) < 0 ) {
-      this.router.navigate(['/']);
+      this.router.navigate(['/login']);
       return false;
     }
     return true;
