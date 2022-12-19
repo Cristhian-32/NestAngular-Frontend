@@ -30,12 +30,12 @@ export class TokenService {
     const payload = token.split('.')[1];
     const values = atob(payload);
     const valuesJson = JSON.parse(values);
-    const username = valuesJson.username;
+    const name = valuesJson.name;
     //console.log(nameUser);
-    return username;
+    return name;
   }
 
-  getRoleByToken(): string {
+  getEmailUser(): string {
     if (!this.isLogged()) {
       return null!;
     }
@@ -43,9 +43,9 @@ export class TokenService {
     const payload = token.split('.')[1];
     const values = atob(payload);
     const valuesJson = JSON.parse(values);
-    const roles = valuesJson.roles;
-    console.log(roles);
-    return roles;
+    const email = valuesJson.email;
+    //console.log(nameUser);
+    return email;
   }
 
   isAdmin(): boolean {

@@ -12,29 +12,30 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AddStudentComponent implements OnInit {
 
-  constructor(public studentService: StudentService, private router: Router, private toastr: ToastrService) { }
+  constructor(
+    public studentService: StudentService,
+    private router: Router,
+    private toastr: ToastrService
+  ) { }
 
   ngOnInit(): void {
   }
 
-  submitForm(studentForm: NgForm) {
+  onCreate(studentForm: NgForm) {
     if (studentForm.value.id == null) {
       this.studentService.CreateStudent(studentForm.value).subscribe((response) => {
         this.toastr.success('Nuevo Estudiante Agregado', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-right'
         });
+        this.resetForm(studentForm);
         this.router.navigate(["/list-student"]);
-      });
-    } else {
-      this.studentService.updateStudent(studentForm.value.id, studentForm.value).subscribe((response)=>{
-        this.toastr.success('Datos Actualizados', 'OK', {
-          timeOut: 3000, positionClass: 'toast-top-right'
+      },
+        err => {
+          this.toastr.error(err.error.message, 'Fail', {
+            timeOut: 2000, positionClass: 'toast-top-right'
+          });
         });
-        this.router.navigate(["/list-student"]);
-      });
     }
-    this.resetForm(studentForm);
-
   }
 
   resetForm(studentForm: NgForm) {
@@ -42,6 +43,11 @@ export class AddStudentComponent implements OnInit {
       studentForm.reset();
       this.studentService.selectStudent = new Student();
     }
+  }
+
+  backReset(studentForm: NgForm) {
+    this.resetForm(studentForm);
+    this.router.navigate(['/']);
   }
 
 }

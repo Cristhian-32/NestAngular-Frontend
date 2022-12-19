@@ -3,7 +3,9 @@ import { Router } from '@angular/router';
 import { Student } from 'src/app/models/student';
 import { StudentService } from 'src/app/services/student.service';
 import { TokenService } from 'src/app/services/token.service';
+import { MatDialog } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
+import { EditStudentComponent } from '../edit-student/edit-student.component';
 
 @Component({
   selector: 'app-list-student',
@@ -21,7 +23,8 @@ export class ListStudentComponent implements OnInit {
   constructor(
     public studentService: StudentService, 
     private router:Router,
-    private tokenService: TokenService
+    private tokenService: TokenService,
+    private dialog: MatDialog
     ) { }
 
   ngOnInit(): void {
@@ -43,10 +46,12 @@ export class ListStudentComponent implements OnInit {
   }
 
   onEdit(student: Student) {
-    console.log(student);
+    this.dialog.open(EditStudentComponent, {
+      width: '30%',
+      
+    });
+    //console.log(student);
     this.studentService.selectStudent=Object.assign({}, student);
-    this.router.navigate(["/add-student"]);
-    
   }
 
   deleteStudent(id:number) {
@@ -68,12 +73,6 @@ export class ListStudentComponent implements OnInit {
           'HECHO!',
           'Registro Eliminado Satisfactoriamente.',
           'success'
-        )
-      } else if (result.dismiss ===Swal.DismissReason.cancel) {
-        Swal.fire(
-          'Cancelado',
-          'Registro a salvó',
-          'error'
         )
       }
     })

@@ -1,29 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Student } from 'src/app/models/student';
-import { StudentService } from 'src/app/services/student.service';
+import { ArticleService } from 'src/app/services/article.service';
+
 
 @Component({
-  selector: 'app-detail-student',
-  templateUrl: './detail-student.component.html',
-  styleUrls: ['./detail-student.component.css']
+  selector: 'app-show-article',
+  templateUrl: './show-article.component.html',
+  styleUrls: ['./show-article.component.css']
 })
-export class DetailStudentComponent implements OnInit {
+export class ShowArticleComponent implements OnInit {
+
 
   constructor(
-    public studentService: StudentService, 
+    public articleService: ArticleService, 
     private router:Router,
     private toastrService: ToastrService,
     private activateRoute: ActivatedRoute
   ) { }
 
-  student: any=[];
+  article: any=[];
 
   ngOnInit(): void {
     const id = this.activateRoute.snapshot.params?.["id"];
-    this.studentService.detail(id).subscribe(data => {
-      this.student = data;
+    this.articleService.download(id).subscribe(data => {
+      this.article = data;
       console.log(data);
       
     },
@@ -34,7 +35,5 @@ export class DetailStudentComponent implements OnInit {
       this.router.navigate(['/']);
     }
     )
-    
   }
-
 }

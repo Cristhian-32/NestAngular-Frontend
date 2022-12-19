@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AddStudentComponent } from './components/student/add-student/add-student.component';
 import { EditStudentComponent } from './components/student/edit-student/edit-student.component';
 import { ListStudentComponent } from './components/student/list-student/list-student.component';
+import { DetailStudentComponent } from './components/student/detail-student/detail-student.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { StudentService } from './services/student.service';
@@ -28,6 +29,12 @@ import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from 'src/environments/environment';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatDialogModule } from '@angular/material/dialog';
+import { AddArticleComponent } from './components/article/add-article/add-article.component'
+import { ArticleService } from './services/article.service';
+import { EditArticleComponent } from './components/article/edit-article/edit-article.component';
+import { ListArticleComponent } from './components/article/list-article/list-article.component';
+import { ShowArticleComponent } from './components/article/show-article/show-article.component';
 
 @NgModule({
   declarations: [
@@ -35,17 +42,23 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AddStudentComponent,
     EditStudentComponent,
     ListStudentComponent,
+    DetailStudentComponent,
     HomeComponent,
     MenuComponent,
     LoginComponent,
     RegisterComponent,
-    RegisterAdviserComponent
+    RegisterAdviserComponent,
+    AddArticleComponent,
+    EditArticleComponent,
+    ListArticleComponent,
+    ShowArticleComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
+    MatDialogModule,
     FormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
@@ -54,7 +67,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AngularFireAnalyticsModule,
     AngularFirestoreModule,
   ],
-  providers: [StudentService, interceptorProvider],
+  providers: [StudentService, ArticleService, interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

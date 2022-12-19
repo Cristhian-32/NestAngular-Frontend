@@ -12,6 +12,8 @@ export class MenuComponent implements OnInit {
   isLogged!: boolean;
   isAdmin!: boolean;
   isAdviser!: boolean;
+  nameUser!: string;
+  emailUser!:string;
   
 
   constructor(
@@ -23,6 +25,8 @@ export class MenuComponent implements OnInit {
     this.isLogged = this.tokenService.isLogged();
     this.isAdmin = this.tokenService.isAdmin();
     this.isAdviser = this.tokenService.isAdviser();
+    this.nameUser = this.tokenService.getNameUser();
+    this.emailUser = this.tokenService.getEmailUser();
   }
 
   logOut(): void {

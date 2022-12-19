@@ -11,10 +11,10 @@ export class StudentService {
   selectStudent: Student = new Student();
   reqHeader = new HttpHeaders({
     'Content-Type': 'application/json',
-  })
+  });
 
   constructor(private httpClient:HttpClient) { }
-  studentURL = 'http://localhost:6060/api/students';
+  studentURL = 'http://localhost:8000/api/students';
 
 
   //GET
@@ -41,6 +41,7 @@ export class StudentService {
 
   //EXTRAS
   detail(id:number): Observable<Student> {
-    return this.httpClient.get<Student>(this.studentURL+'/students/'+id+'/')
+    return this.httpClient.get<Student>(this.studentURL+'/'+id+'/')
   }
+
 }
