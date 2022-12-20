@@ -42,9 +42,15 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { AddConvocatoriaComponent } from './components/convocatorias/add-convocatoria/add-convocatoria.component';
+import { EditConvocatoriaComponent } from './components/convocatorias/edit-convocatoria/edit-convocatoria.component';
+import { ListConvocatoriaComponent } from './components/convocatorias/list-convocatoria/list-convocatoria.component';
+import { ConvocatoriaService } from './services/convocatoria.service';
+import {convocatoriaComponent} from './components/convocatoria/convocatoria.component'
 import { ListpComponent } from './components/project/listp/listp.component';
 import { MenupComponent } from './components/project/menup/menup.component';
 
+import { AddTemplateComponent } from './components/template/add-template/add-template.component';
 
 @NgModule({
   declarations: [
@@ -66,9 +72,14 @@ import { MenupComponent } from './components/project/menup/menup.component';
     EditResearchComponent,
     ListResearchComponent,
     DetailResearchComponent,
+    AddConvocatoriaComponent,
+    EditConvocatoriaComponent,
+    ListConvocatoriaComponent,
+    convocatoriaComponent,
     ListpComponent,
     MenupComponent,
 
+    AddTemplateComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +98,7 @@ import { MenupComponent } from './components/project/menup/menup.component';
     AngularFireAnalyticsModule,
     AngularFirestoreModule,
   ],
-  providers: [StudentService, ArticleService, interceptorProvider],
+  providers: [StudentService, ArticleService, interceptorProvider,ConvocatoriaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -14,7 +14,7 @@ export class StudentService {
   });
 
   constructor(private httpClient:HttpClient) { }
-  studentURL = 'http://localhost:8000/api/students';
+  studentURL = 'http://localhost:6060/api/students';
 
 
   //GET
@@ -26,7 +26,7 @@ export class StudentService {
   CreateStudent(student:Student): Observable<Student> {
     console.log(student);
     return this.httpClient.post(this.studentURL, student, {headers: this.reqHeader});
-    
+
   }
 
   //PUT

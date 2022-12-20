@@ -6,6 +6,10 @@ import { ShowArticleComponent } from './components/article/show-article/show-art
 import { LoginComponent } from './components/auth/login.component';
 import { RegisterAdviserComponent } from './components/auth/register-adviser.component';
 import { RegisterComponent } from './components/auth/register.component';
+import { convocatoriaComponent } from './components/convocatoria/convocatoria.component';
+import { AddConvocatoriaComponent } from './components/convocatorias/add-convocatoria/add-convocatoria.component';
+import { ListConvocatoriaComponent } from './components/convocatorias/list-convocatoria/list-convocatoria.component';
+
 import { HomeComponent } from './components/home/home.component';
 import { ListpComponent } from './components/project/listp/listp.component';
 import { MenupComponent } from './components/project/menup/menup.component';
@@ -15,6 +19,7 @@ import { AddStudentComponent } from './components/student/add-student/add-studen
 import { DetailStudentComponent } from './components/student/detail-student/detail-student.component';
 import { EditStudentComponent } from './components/student/edit-student/edit-student.component';
 import { ListStudentComponent } from './components/student/list-student/list-student.component';
+import { AddTemplateComponent } from './components/template/add-template/add-template.component';
 import { LoginGuard } from './guards/login.guard';
 import { RolesGuard } from './guards/roles.guard';
 
@@ -41,7 +46,13 @@ const routes: Routes = [
 
 
 
+  {path:'add-template', component: AddTemplateComponent},
   //{path:'',component:LoginComponent},
+  {path:'convocatoria',component:convocatoriaComponent},
+  {path:'list-convocatoria',component:ListConvocatoriaComponent},
+  {path:'add-convocatoria',component:AddConvocatoriaComponent},
+
+
 
 ];
 
