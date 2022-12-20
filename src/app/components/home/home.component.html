@@ -6,7 +6,7 @@
         <h1 class="display-4" *ngIf="nameUser">Hola, {{nameUser}}!</h1>
         <p class="lead" *ngIf="!isLogged">Aqui encontraras muchas ayudas para la investigación, inicia sesión para continuar.</p>
         <p class="lead" *ngIf="isLogged">Aqui encontraras muchas ayudas para la investigación.</p>
-        
+
         <div class="mt-8 flex flex-col items-center justify-center  px-4 sm:flex-row sm:space-x-6 sm:space-y-0">
 
             <div  href="" class="w-full max-w-sm overflow-hidden rounded-lg bg-white shadow-md duration-300 hover:scale-105 hover:shadow-xl cursor-pointer ">
@@ -32,7 +32,7 @@
                 <p class="my-4 text-center text-sm text-gray-500">Realiza el registro de Pagos</p>
                 <div class="space-x-4 bg-gray-100 py-4 text-center">
                     <button class="inline-block rounded-md bg-blue-500 px-10 py-2 font-semibold text-red-100 shadow-md duration-75 hover:bg-red-400">
-                        <a class="text-white nav-link" href=" ">Dirigirse</a>
+                        <a class="text-white nav-link" routerLink="/convocatoria" href=" ">Dirigirse</a>
                     </button>
 
                 </div>

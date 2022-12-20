@@ -35,6 +35,11 @@ import { ArticleService } from './services/article.service';
 import { EditArticleComponent } from './components/article/edit-article/edit-article.component';
 import { ListArticleComponent } from './components/article/list-article/list-article.component';
 import { ShowArticleComponent } from './components/article/show-article/show-article.component';
+import { AddConvocatoriaComponent } from './components/convocatorias/add-convocatoria/add-convocatoria.component';
+import { EditConvocatoriaComponent } from './components/convocatorias/edit-convocatoria/edit-convocatoria.component';
+import { ListConvocatoriaComponent } from './components/convocatorias/list-convocatoria/list-convocatoria.component';
+import { ConvocatoriaService } from './services/convocatoria.service';
+import {convocatoriaComponent} from './components/convocatoria/convocatoria.component'
 
 @NgModule({
   declarations: [
@@ -51,7 +56,11 @@ import { ShowArticleComponent } from './components/article/show-article/show-art
     AddArticleComponent,
     EditArticleComponent,
     ListArticleComponent,
-    ShowArticleComponent
+    ShowArticleComponent,
+    AddConvocatoriaComponent,
+    EditConvocatoriaComponent,
+    ListConvocatoriaComponent,
+    convocatoriaComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +76,7 @@ import { ShowArticleComponent } from './components/article/show-article/show-art
     AngularFireAnalyticsModule,
     AngularFirestoreModule,
   ],
-  providers: [StudentService, ArticleService, interceptorProvider],
+  providers: [StudentService, ArticleService, interceptorProvider,ConvocatoriaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

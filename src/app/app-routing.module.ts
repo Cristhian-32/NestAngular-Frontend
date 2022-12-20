@@ -6,6 +6,10 @@ import { ShowArticleComponent } from './components/article/show-article/show-art
 import { LoginComponent } from './components/auth/login.component';
 import { RegisterAdviserComponent } from './components/auth/register-adviser.component';
 import { RegisterComponent } from './components/auth/register.component';
+import { convocatoriaComponent } from './components/convocatoria/convocatoria.component';
+import { AddConvocatoriaComponent } from './components/convocatorias/add-convocatoria/add-convocatoria.component';
+import { ListConvocatoriaComponent } from './components/convocatorias/list-convocatoria/list-convocatoria.component';
+
 import { HomeComponent } from './components/home/home.component';
 import { AddStudentComponent } from './components/student/add-student/add-student.component';
 import { DetailStudentComponent } from './components/student/detail-student/detail-student.component';
@@ -27,8 +31,13 @@ const routes: Routes = [
   {path:'register-adviser', component: RegisterAdviserComponent, canActivate: [RolesGuard], data: {expectedRole: ['admin']}},
   {path:'add-article', component: AddArticleComponent},
   {path:'list-article', component:ListArticleComponent},
-  {path:'show-article/:id', component: ShowArticleComponent}
+  {path:'show-article/:id', component: ShowArticleComponent},
   //{path:'',component:LoginComponent},
+  {path:'convocatoria',component:convocatoriaComponent},
+  {path:'list-convocatoria',component:ListConvocatoriaComponent},
+  {path:'add-convocatoria',component:AddConvocatoriaComponent},
+
+
 
 ];
 
