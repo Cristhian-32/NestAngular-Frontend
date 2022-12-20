@@ -25,8 +25,12 @@
             <i class="far fa-list-alt"></i> Listas</a></li>
           <li *ngIf="isAdviser"><a class="nav-link inline-block py-2 px-3 hover:bg-gray-200 rounded-full text-gray-400" routerLink="/add-student">
             <i class="fas fa-plus-circle"></i> Nuevo Estudiante</a></li>
+            <li *ngIf="isAdviser"><a class="nav-link inline-block py-2 px-3 hover:bg-gray-200 rounded-full text-gray-400" routerLink="/add-research">
+              <i class="fas fa-plus-circle"></i> Nuevo Registro</a></li>
           <li><a class="nav-link inline-block py-2 px-3 hover:bg-gray-200 rounded-full text-gray-400" href="#">
             <i class="fa-solid fa-file"></i> Plantillas</a></li>
+            <li><a class="nav-link inline-block py-2 px-3 hover:bg-gray-200 rounded-full text-gray-400" routerLink="/project">
+              <i class="fa-solid fa-file"></i> Proyectos</a></li>
           <div class="nav-link block relative" *ngIf="isAdmin">
             <button type="button" class="inline-block py-2 px-3 text-gray-400 hover:bg-gray-200 rounded-full relative ">
               <div class="flex items-center h-5">
@@ -43,7 +47,7 @@
           </div>
         </ul>
       </div>
-      
+
       <!-- User -->
       <div ngbDropdown placement="bottom-right" *ngIf="isLogged">
         <a class="flex h-12 w-12 items-center overflow-hidden rounded-full bg-slate-900 text-slate-100 ring-slate-100 transition hover:shadow-md hover:ring-2"
@@ -117,9 +121,18 @@
           routerLink="/login" *ngIf="!isLogged"><i class="fa-solid fa-right-to-bracket"></i> Iniciar Sesión</button>
         <button class="hidden lg:inline-block py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold rounded-xl transition duration-200"
         routerLink="/register" *ngIf="!isLogged"><i class="fa-solid fa-user-tie"></i> Registrarse</button>
-        </form>    
+        </form>
       </ul>
     </div>
+
   </div>
+
   <!-- end login -->
 </nav>
+<div class="flex items-end justify-end fixed bottom-0 right-0 mb-4 mr-4 z-10">
+  <div>
+      <a title="MIRA NUESTRO CÓDIGO" href="https://github.com/ZzOwO/SisAcomita2022" target="_blank" class="block w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12">
+          <img class="object-cover object-center w-full h-full rounded-full" src="https://i.pinimg.com/originals/60/fd/e8/60fde811b6be57094e0abc69d9c2622a.jpg"/>
+      </a>
+  </div>
+</div>

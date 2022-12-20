@@ -78,6 +78,21 @@ export class TokenService {
     return true;
   }
 
+  isUser(): boolean {
+    if (!this.isLogged()) {
+      return null!;
+    }
+    const token = this.getToken();
+    const payload = token.split('.')[1];
+    const values = atob(payload);
+    const valuesJson = JSON.parse(values);
+    const roles = valuesJson.roles;
+    if (roles.indexOf('user') < 0) {
+      return false;
+    }
+    return true;
+  }
+
   logOut(): void {
     localStorage.clear();
   }

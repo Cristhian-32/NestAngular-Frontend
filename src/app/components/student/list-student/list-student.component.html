@@ -52,7 +52,7 @@
                                     class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                     Código
                                 </th>
-                                <th
+                                <th *ngIf="isAdmin"
                                     class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                     <i class="fa-solid fa-filter"></i> Opciones
                                 </th>
@@ -75,11 +75,11 @@
                                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                     <p class="text-gray-900 whitespace-no-wrap">{{item.code}}</p>
                                 </td>
-                                <td>
+                                <td *ngIf="isAdmin">
                                     <button type="button" routerLink="/detail-student/{{item.id}}"
                                         class="mr-3 text-sm bg-green-500 hover:bg-green-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
                                         <i class="fa-solid fa-eye"></i> Ver</button>
-                                    <button type="button" (click)="onAddResearch(item)"
+                                    <button type="button" (click)="onEdit(item)"
                                         class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
                                         <i class="fa-solid fa-pen-to-square"></i> Editar</button>
                                     <button type="button" (click)="deleteStudent(item.id)"

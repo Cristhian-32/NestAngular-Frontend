@@ -43,4 +43,10 @@ export class ResearchService {
   detail(id:number): Observable<Researh> {
     return this.httpClient.get<Researh>(this.researchURL+'/'+id+'/')
   }
+
+  //POST
+  sendArticle(body: FormData): Observable<any> {
+    console.log(body);
+    return this.httpClient.post(this.researchURL, body)
+  }
 }

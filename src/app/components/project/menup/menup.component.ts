@@ -3,31 +3,28 @@ import { Router } from '@angular/router';
 import { TokenService } from 'src/app/services/token.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-menup',
+  templateUrl: './menup.component.html',
+  styleUrls: ['./menup.component.css']
 })
-export class HomeComponent implements OnInit {
+export class MenupComponent implements OnInit {
 
-  nameUser!: string;
   isLogged!: boolean;
-
   isAdmin!: boolean;
   isAdviser!: boolean;
-  isUser!: boolean;
+  nameUser!: string;
+  emailUser!:string;
 
-  constructor(
-    private tokenService: TokenService,
-    private router: Router
-  ) { }
+  constructor(private tokenService: TokenService,
+    private router: Router) {
 
-
+   }
   ngOnInit(): void {
-    this.nameUser = this.tokenService.getNameUser();
     this.isLogged = this.tokenService.isLogged();
     this.isAdmin = this.tokenService.isAdmin();
     this.isAdviser = this.tokenService.isAdviser();
-    this.isUser = this.tokenService.isUser();
+    this.nameUser = this.tokenService.getNameUser();
+    this.emailUser = this.tokenService.getEmailUser();
   }
 
 }

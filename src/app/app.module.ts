@@ -42,7 +42,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-
+import { ListpComponent } from './components/project/listp/listp.component';
+import { MenupComponent } from './components/project/menup/menup.component';
 
 
 @NgModule({
@@ -64,7 +65,10 @@ import { MatNativeDateModule } from '@angular/material/core';
     AddResearchComponent,
     EditResearchComponent,
     ListResearchComponent,
-    DetailResearchComponent
+    DetailResearchComponent,
+    ListpComponent,
+    MenupComponent,
+
   ],
   imports: [
     BrowserModule,

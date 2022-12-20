@@ -10,8 +10,8 @@
                     <div class="w-full sm:w-auto sm:ml-auto mt-3 sm:mt-0"></div>
                 </div>
                 <div class="">
-                    <div class="form">
-                        <input type="hidden" name="id" [(ngModel)]="researchService.selectResearch.id">    
+                    <form #researhForm="ngForm" (ngSubmit)="onCreate(researhForm)">
+                        <input type="hidden" name="id" [(ngModel)]="researchService.selectResearch.id">
                         <input type="hidden" name="date" [(ngModel)]="researchService.selectResearch.date || date">
 
                         <div class="md:flex flex-row md:space-x-4 w-full text-xs">
@@ -20,8 +20,8 @@
                                         title="required">*</abbr></label>
                                 <input placeholder="upeu.sistemas@upue.edu.pe"
                                     class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
-                                    required="required" type="email" name="email" [(ngModel)]="researchService.selectResearch.email"
-                                    id="integration_shop_name">
+                                    required="required" type="email" name="email"
+                                    [(ngModel)]="researchService.selectResearch.email" id="integration_shop_name">
                                 <p class="text-red text-xs hidden">Please fill out this field.</p>
                             </div>
                             <div class="mb-3 space-y-2 w-full text-xs">
@@ -29,28 +29,29 @@
                                         title="required">*</abbr></label>
                                 <input placeholder="957375***"
                                     class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
-                                    required="required" type="text" name="phone" [(ngModel)]="researchService.selectResearch.phone "
-                                    id="integration_shop_name">
+                                    required="required" type="text" name="phone"
+                                    [(ngModel)]="researchService.selectResearch.phone" id="integration_shop_name">
                                 <p class="text-red text-xs hidden">Please fill out this field.</p>
                             </div>
                         </div>
                         <div class="md:flex md:flex-row md:space-x-4 w-full text-xs">
                             <div class="w-full flex flex-col mb-3">
                                 <label class="font-semibold text-gray-600 py-2">Escuela Profesional<abbr
-                                    title="required">*</abbr></label>
-                                <input placeholder="Ing. Sistemas"
+                                        title="required">*</abbr></label>
+                                <input placeholder="Ing. Sistemas" [(ngModel)]="researchService.selectResearch.school"
                                     class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
-                                    type="text" name="integration[street_address]" id="integration_street_address">
+                                    type="text" name="school" id="school">
                             </div>
                             <div class="w-full flex flex-col mb-3">
                                 <label class="font-semibold text-gray-600 py-2">Categoría<abbr
                                         title="required">*</abbr></label>
                                 <select
                                     class="block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4 md:w-full "
-                                    required="required" name="category" id="category" [(ngModel)]="researchService.selectResearch.category">
-                                    <option value="">Atículo Empírico</option>
-                                    <option value="">Revisión</option>
-                                    <option value="">Baner</option>
+                                    required="required" name="category" id="category"
+                                    [(ngModel)]="researchService.selectResearch.category">
+                                    <option value="Articulo">Atículo Empírico</option>
+                                    <option value="Revision">Revisión</option>
+                                    <option value="Baner">Baner</option>
                                 </select>
                                 <p class="text-sm text-red-500 hidden mt-3" id="error">Please fill out this field.</p>
                             </div>
@@ -67,8 +68,9 @@
                                 <label class="cursor-pointer ">
                                     <span
                                         class="focus:outline-none text-white text-sm py-2 px-4 rounded-full bg-green-400 hover:bg-green-500 hover:shadow-lg">Adjuntar</span>
-                                    <input type="file" class="hidden" :multiple="multiple" :accept="accept">
-                                    
+                                    <input type="file" class="hidden" :multiple="multiple" :accept="accept" name="path" (change)="getFile($event)"
+                                        id="path" [(ngModel)]="researchService.selectResearch.path">
+
                                 </label>
                             </div>
                         </div>
@@ -78,10 +80,10 @@
                             <button
                                 class="mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-gray-600 rounded-full hover:shadow-lg hover:bg-gray-100">
                                 Cancel </button>
-                            <button
+                            <button type="submit" 
                                 class="mb-2 md:mb-0 bg-green-400 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-green-500">Guardar</button>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>

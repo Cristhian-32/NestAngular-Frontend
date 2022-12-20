@@ -19,18 +19,22 @@ export class AddResearchComponent implements OnInit {
   ) { }
 
   date: Date = new Date;
+  private fileTmp: any;
 
   ngOnInit(): void {
   }
 
   onCreate(researchForm: NgForm) {
+    
     if (researchForm.value.id == null) {
-      this.researchService.create(researchForm.value).subscribe((response) => {
+
+      this.researchService.sendArticle(researchForm.value).subscribe((response) => {
+        this.researchService.sendArticle(researchForm.value).subscribe(res => console.log(res))
         this.toastr.success('Registro Completado', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-right'
         });
+        this.sendFile();
         this.resetForm(researchForm);
-        this.router.navigate(["/list-research"]);
       },
         err => {
           this.toastr.error(err.error.message, 'Fail', {
@@ -51,4 +55,20 @@ export class AddResearchComponent implements OnInit {
     this.resetForm(researchForm);
     this.router.navigate(['/']);
   }
+
+  getFile($event: any): void {
+    console.log($event);
+    const [ file ] = $event.target.files;
+    console.log(file);
+    this.fileTmp = {
+      fileRaw:file,
+      fileName:file.name
+    }
+  }
+
+  sendFile(): void{
+    let formData = new FormData();
+    formData.set('path', this.fileTmp);
+  }
+
 }

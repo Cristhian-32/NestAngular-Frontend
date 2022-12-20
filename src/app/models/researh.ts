@@ -6,7 +6,7 @@ export class Researh {
     phone?: string;
     school?: string;
     category?: string;
-    student_id?: string;
-    article_id?: string;
+    path?: string;
+    student_id?: number;
 
 }

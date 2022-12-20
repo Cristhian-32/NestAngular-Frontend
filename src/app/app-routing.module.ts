@@ -7,12 +7,17 @@ import { LoginComponent } from './components/auth/login.component';
 import { RegisterAdviserComponent } from './components/auth/register-adviser.component';
 import { RegisterComponent } from './components/auth/register.component';
 import { HomeComponent } from './components/home/home.component';
+import { ListpComponent } from './components/project/listp/listp.component';
+import { MenupComponent } from './components/project/menup/menup.component';
+import { AddResearchComponent } from './components/research/add-research/add-research.component';
+
 import { AddStudentComponent } from './components/student/add-student/add-student.component';
 import { DetailStudentComponent } from './components/student/detail-student/detail-student.component';
 import { EditStudentComponent } from './components/student/edit-student/edit-student.component';
 import { ListStudentComponent } from './components/student/list-student/list-student.component';
 import { LoginGuard } from './guards/login.guard';
 import { RolesGuard } from './guards/roles.guard';
+
 
 
 
@@ -26,8 +31,16 @@ const routes: Routes = [
   {path:'register', component: RegisterComponent, canActivate: [LoginGuard]},
   {path:'register-adviser', component: RegisterAdviserComponent, canActivate: [RolesGuard], data: {expectedRole: ['admin']}},
   {path:'add-article', component: AddArticleComponent},
+  {path:'add-research', component: AddResearchComponent},
+  {path:'list-research', component: ListArticleComponent},
   {path:'list-article', component:ListArticleComponent},
-  {path:'show-article/:id', component: ShowArticleComponent}
+  {path:'show-article/:id', component: ShowArticleComponent},
+  {path:'project', component: MenupComponent},
+  {path:'listp', component: ListpComponent},
+
+
+
+
   //{path:'',component:LoginComponent},
 
 ];

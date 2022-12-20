@@ -5,6 +5,7 @@ import { Researh } from 'src/app/models/researh';
 import { ResearchService } from 'src/app/services/research.service';
 import { TokenService } from 'src/app/services/token.service';
 import Swal from 'sweetalert2';
+import { AddResearchComponent } from '../add-research/add-research.component';
 import { EditResearchComponent } from '../edit-research/edit-research.component';
 
 @Component({
@@ -20,6 +21,8 @@ export class ListResearchComponent implements OnInit {
 
   isAdmin!: boolean;
 
+  isAdviser!: boolean;
+
   constructor(
     public researchService: ResearchService, 
     private router:Router,
@@ -31,6 +34,7 @@ export class ListResearchComponent implements OnInit {
 
     this.loadResearchs();
     this.isAdmin = this.tokenService.isAdmin();
+    this.isAdviser = this.tokenService.isAdviser();
   }
 
   loadResearchs() {
@@ -50,6 +54,13 @@ export class ListResearchComponent implements OnInit {
       
     });
     //console.log(research);
+    this.researchService.selectResearch=Object.assign({}, research);
+  }
+
+  onAddResearch(research: Researh) {
+    this.dialog.open(AddResearchComponent, {
+      width: '35%',
+    });
     this.researchService.selectResearch=Object.assign({}, research);
   }
 
