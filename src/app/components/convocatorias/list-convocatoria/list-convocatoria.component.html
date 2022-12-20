@@ -16,12 +16,20 @@
   <div class="row">
       <!-- table -->
       <div class="bg-white p-8 rounded-md w-full">
-        <div class=" flex items-center justify-between pb-6">
-            <div>
-                <h2 class="text-gray-600 font-semibold">Lista de Convocatorias</h2>
-            </div>
+        <div class="flex items-center justify-between">
+          <div class="flex bg-gray-50 items-center p-2 rounded-md">
 
-        </div>
+            <div  href="" class="w-full max-w-sm overflow-hidden rounded-lg  ">
+              <h1 class="mt-10  text-2xl font-bold text-black static">Lista de Convocatorias</h1>
+            <p class="lead"></p>
+          </div>
+          </div>
+          <div class="lg:ml-40 ml-10 space-x-8">
+
+              <button
+                  class="inline-block rounded-md bg-slate-900 px-2 py-1 font-semibold text-green-100 shadow-md duration-75 hover:bg-green-400"routerLink="/convocatoria">Atras</button>
+          </div>
+      </div>
         <div>
             <div class="sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                 <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
@@ -76,7 +84,7 @@
                                 <td>
 
                                     <button type="button" (click)="onEdit(item)"
-                                        class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
+                                        class="inline-block rounded-md bg-slate-900 px-2 py-1 font-semibold text-green-100 shadow-md duration-75 hover:bg-green-400">
                                         <i class="fa-solid fa-pen-to-square"></i> Editar</button>
                                     <button type="button" (click)="deleteConvocatoria(item.id)"
                                         class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
