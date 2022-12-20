@@ -38,6 +38,7 @@ import { ShowArticleComponent } from './components/article/show-article/show-art
 import { ListpComponent } from './components/project/listp/listp.component';
 import { MenupComponent } from './components/project/menup/menup.component';
 
+import { AddTemplateComponent } from './components/template/add-template/add-template.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { MenupComponent } from './components/project/menup/menup.component';
     ListpComponent,
     MenupComponent,
 
+    AddTemplateComponent
   ],
   imports: [
     BrowserModule,
