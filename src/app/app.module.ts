@@ -35,6 +35,9 @@ import { ArticleService } from './services/article.service';
 import { EditArticleComponent } from './components/article/edit-article/edit-article.component';
 import { ListArticleComponent } from './components/article/list-article/list-article.component';
 import { ShowArticleComponent } from './components/article/show-article/show-article.component';
+import { ListpComponent } from './components/project/listp/listp.component';
+import { MenupComponent } from './components/project/menup/menup.component';
+
 
 @NgModule({
   declarations: [
@@ -51,7 +54,10 @@ import { ShowArticleComponent } from './components/article/show-article/show-art
     AddArticleComponent,
     EditArticleComponent,
     ListArticleComponent,
-    ShowArticleComponent
+    ShowArticleComponent,
+    ListpComponent,
+    MenupComponent,
+
   ],
   imports: [
     BrowserModule,
