@@ -7,6 +7,7 @@ import { LoginComponent } from './components/auth/login.component';
 import { RegisterAdviserComponent } from './components/auth/register-adviser.component';
 import { RegisterComponent } from './components/auth/register.component';
 import { HomeComponent } from './components/home/home.component';
+import { ListpComponent } from './components/project/listp/listp.component';
 import { MenupComponent } from './components/project/menup/menup.component';
 
 import { AddStudentComponent } from './components/student/add-student/add-student.component';
@@ -32,6 +33,8 @@ const routes: Routes = [
   {path:'list-article', component:ListArticleComponent},
   {path:'show-article/:id', component: ShowArticleComponent},
   {path:'project', component: MenupComponent},
+  {path:'listp', component: ListpComponent},
+
 
 
 
