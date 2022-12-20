@@ -17,6 +17,15 @@ import { MenuComponent } from './components/menu/menu.component';
 import { LoginComponent } from './components/auth/login.component';
 import { RegisterComponent } from './components/auth/register.component';
 import { interceptorProvider } from './interceptors/student.interceptor';
+import { AddResearchComponent } from './components/research/add-research/add-research.component';
+import { EditResearchComponent } from './components/research/edit-research/edit-research.component';
+import { ListResearchComponent } from './components/research/list-research/list-research.component';
+import { DetailResearchComponent } from './components/research/detail-research/detail-research.component';
+import { AddArticleComponent } from './components/article/add-article/add-article.component'
+import { ArticleService } from './services/article.service';
+import { EditArticleComponent } from './components/article/edit-article/edit-article.component';
+import { ListArticleComponent } from './components/article/list-article/list-article.component';
+import { ShowArticleComponent } from './components/article/show-article/show-article.component';
 
 //External
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -30,11 +39,11 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from 'src/environments/environment';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatDialogModule } from '@angular/material/dialog';
-import { AddArticleComponent } from './components/article/add-article/add-article.component'
-import { ArticleService } from './services/article.service';
-import { EditArticleComponent } from './components/article/edit-article/edit-article.component';
-import { ListArticleComponent } from './components/article/list-article/list-article.component';
-import { ShowArticleComponent } from './components/article/show-article/show-article.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
+
 
 @NgModule({
   declarations: [
@@ -51,7 +60,11 @@ import { ShowArticleComponent } from './components/article/show-article/show-art
     AddArticleComponent,
     EditArticleComponent,
     ListArticleComponent,
-    ShowArticleComponent
+    ShowArticleComponent,
+    AddResearchComponent,
+    EditResearchComponent,
+    ListResearchComponent,
+    DetailResearchComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +72,9 @@ import { ShowArticleComponent } from './components/article/show-article/show-art
     HttpClientModule,
     NgbModule,
     MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
     FormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),

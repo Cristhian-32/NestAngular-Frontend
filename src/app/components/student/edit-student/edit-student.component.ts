@@ -29,8 +29,10 @@ export class EditStudentComponent implements OnInit {
         this.toastr.success('Datos Actualizados', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-right'
         });
+        window.location.reload();
         this.dialogDif.closeAll();
         this.resetForm(studentForm);
+        
       },
         err => {
           this.toastr.error(err.error.message, 'Fail', {

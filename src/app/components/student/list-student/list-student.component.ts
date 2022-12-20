@@ -6,6 +6,9 @@ import { TokenService } from 'src/app/services/token.service';
 import { MatDialog } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
 import { EditStudentComponent } from '../edit-student/edit-student.component';
+import { Researh } from 'src/app/models/researh';
+import { AddResearchComponent } from '../../research/add-research/add-research.component';
+import { ResearchService } from 'src/app/services/research.service';
 
 @Component({
   selector: 'app-list-student',
@@ -24,14 +27,14 @@ export class ListStudentComponent implements OnInit {
     public studentService: StudentService, 
     private router:Router,
     private tokenService: TokenService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private researchService: ResearchService
     ) { }
 
   ngOnInit(): void {
 
     this.loadStudents();
     this.isAdmin = this.tokenService.isAdmin();
-    //this.tokenService.getRoleByToken();
   }
 
   loadStudents() {
@@ -53,6 +56,14 @@ export class ListStudentComponent implements OnInit {
     //console.log(student);
     this.studentService.selectStudent=Object.assign({}, student);
   }
+
+  onAddResearch(research: Researh) {
+    this.dialog.open(AddResearchComponent, {
+      width: '35%',
+    });
+    this.researchService.selectResearch=Object.assign({}, research);
+  }
+  
 
   deleteStudent(id:number) {
     Swal.fire({
