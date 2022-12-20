@@ -18,6 +18,7 @@ import { AddStudentComponent } from './components/student/add-student/add-studen
 import { DetailStudentComponent } from './components/student/detail-student/detail-student.component';
 import { EditStudentComponent } from './components/student/edit-student/edit-student.component';
 import { ListStudentComponent } from './components/student/list-student/list-student.component';
+import { AddTemplateComponent } from './components/template/add-template/add-template.component';
 import { LoginGuard } from './guards/login.guard';
 import { RolesGuard } from './guards/roles.guard';
 
@@ -42,6 +43,7 @@ const routes: Routes = [
 
 
 
+  {path:'add-template', component: AddTemplateComponent},
   //{path:'',component:LoginComponent},
   {path:'convocatoria',component:convocatoriaComponent},
   {path:'list-convocatoria',component:ListConvocatoriaComponent},
