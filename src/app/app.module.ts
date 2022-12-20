@@ -51,6 +51,7 @@ import { ListpComponent } from './components/project/listp/listp.component';
 import { MenupComponent } from './components/project/menup/menup.component';
 
 import { AddTemplateComponent } from './components/template/add-template/add-template.component';
+import { CrudTemplateComponent } from './components/template/crud-template/crud-template.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { AddTemplateComponent } from './components/template/add-template/add-tem
     ListpComponent,
     MenupComponent,
 
-    AddTemplateComponent
+    AddTemplateComponent,
+      CrudTemplateComponent
   ],
   imports: [
     BrowserModule,
