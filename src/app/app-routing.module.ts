@@ -20,6 +20,7 @@ import { DetailStudentComponent } from './components/student/detail-student/deta
 import { EditStudentComponent } from './components/student/edit-student/edit-student.component';
 import { ListStudentComponent } from './components/student/list-student/list-student.component';
 import { AddTemplateComponent } from './components/template/add-template/add-template.component';
+import { CrudTemplateComponent } from './components/template/crud-template/crud-template.component';
 import { LoginGuard } from './guards/login.guard';
 import { RolesGuard } from './guards/roles.guard';
 
@@ -45,7 +46,7 @@ const routes: Routes = [
 
 
 
-
+  {path:'template', component: CrudTemplateComponent},
   {path:'add-template', component: AddTemplateComponent},
   //{path:'',component:LoginComponent},
   {path:'convocatoria',component:convocatoriaComponent},
