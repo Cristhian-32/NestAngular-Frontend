@@ -40,6 +40,9 @@ import { EditConvocatoriaComponent } from './components/convocatorias/edit-convo
 import { ListConvocatoriaComponent } from './components/convocatorias/list-convocatoria/list-convocatoria.component';
 import { ConvocatoriaService } from './services/convocatoria.service';
 import {convocatoriaComponent} from './components/convocatoria/convocatoria.component'
+import { ListpComponent } from './components/project/listp/listp.component';
+import { MenupComponent } from './components/project/menup/menup.component';
+
 
 @NgModule({
   declarations: [
@@ -60,7 +63,10 @@ import {convocatoriaComponent} from './components/convocatoria/convocatoria.comp
     AddConvocatoriaComponent,
     EditConvocatoriaComponent,
     ListConvocatoriaComponent,
-    convocatoriaComponent
+    convocatoriaComponent,
+    ListpComponent,
+    MenupComponent,
+
   ],
   imports: [
     BrowserModule,

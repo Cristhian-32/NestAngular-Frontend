@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Convocatoria } from 'src/app/models/convocatoria';
 import { ConvocatoriaService } from 'src/app/services/convocatoria.service';
-
+import { EditConvocatoriaComponent } from '../edit-convocatoria/edit-convocatoria.component';
 @Component({
   selector: 'app-list-convocatoria',
   templateUrl: './list-convocatoria.component.html',
@@ -10,8 +11,9 @@ import { ConvocatoriaService } from 'src/app/services/convocatoria.service';
 })
 export class ListConvocatoriaComponent implements OnInit {
   convocatoriaList:any=[];
+  emptyList = undefined;
 
-  constructor(public convocatoriaService:ConvocatoriaService,private router:Router) { }
+  constructor(public convocatoriaService:ConvocatoriaService,private router:Router,private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.loadConvocatoria();
@@ -20,8 +22,12 @@ export class ListConvocatoriaComponent implements OnInit {
   loadConvocatoria(){
     return this.convocatoriaService.GetConvocatoria().subscribe((data:{})=>{
       this.convocatoriaList=data;
-      console.log(data);
-    });
+      this.emptyList = undefined;
+    },
+    err => {
+      this.emptyList = err.error.message;
+    }
+    );
   }
 
   deleteConvocatoria(id:number){
@@ -31,9 +37,12 @@ export class ListConvocatoriaComponent implements OnInit {
   }
 
   onEdit(convocatoria:Convocatoria){
-    console.log(convocatoria);
+    this.dialog.open(EditConvocatoriaComponent, {
+      width: '30%',
+
+    });
     this.convocatoriaService.selectConvocatorias=Object.assign({},convocatoria);
-    this.router.navigate(["/add-convocatoria"]);
+
   }
 
 }

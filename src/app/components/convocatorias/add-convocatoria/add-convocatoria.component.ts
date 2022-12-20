@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Convocatoria } from 'src/app/models/convocatoria';
@@ -15,7 +16,8 @@ export class AddConvocatoriaComponent implements OnInit {
   constructor(
     public convocatoriaService: ConvocatoriaService,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private dialogDif: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -26,8 +28,9 @@ export class AddConvocatoriaComponent implements OnInit {
         this.toastr.success('Nuevo  Agregado', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-right'
         });
-        this.resetForm(convocatoriaForm);
-        this.router.navigate(["/list-convocatoria"]);
+        this.dialogDif.closeAll();
+        this.router.navigate(["/list-student"]);
+
       },
         err => {
           this.toastr.error(err.error.message, 'Fail', {
@@ -44,6 +47,12 @@ export class AddConvocatoriaComponent implements OnInit {
     }
   }
 
+
+
+  close(convocatoriaForm: NgForm) {
+    this.resetForm(convocatoriaForm);
+    this.dialogDif.closeAll();
+  }
   backReset(convocatoriaForm: NgForm) {
     this.resetForm(convocatoriaForm);
     this.router.navigate(['/']);
